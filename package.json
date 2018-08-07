@@ -4,7 +4,7 @@
   "description": "-- AWESOMENESS --",
   "main": "qu.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node qu.js"
   },
   "dependencies": {
     "ascii-data-table": "^2.1.1",
