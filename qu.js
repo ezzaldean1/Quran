@@ -13,10 +13,10 @@ client.on('ready', () => {
   console.log('---------------');
   console.log(' Quran Bot Is Online')
   console.log('---------------')
-  client.user.setStatus("idle")var fs = require("fs");
-
+  client.user.setStatus("idle")
     client.user.setActivity(" -help | -invite  ",{type: 'WATCHING'})
-    
+});
+
     var prefix = "-"
     
     
