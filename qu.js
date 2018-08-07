@@ -15,9 +15,9 @@ client.on('ready', () => {
   console.log('---------------')
   client.user.setStatus("idle")var fs = require("fs");
 
-    client.user.setActivity(" #help | #invite  ",{type: 'WATCHING'})
+    client.user.setActivity(" -help | -invite  ",{type: 'WATCHING'})
     
-    var prefix = "#"
+    var prefix = "-"
     
     
 
