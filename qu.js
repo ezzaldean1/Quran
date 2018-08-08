@@ -20,6 +20,23 @@ client.on('ready', () => {
     var prefix = "-"
     
     
+
+//bcall
+
+
+client.on('message', message => {
+            if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('-ebc')){
+ if(!message.author.id === '470500980342128650') return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+})
+
+
 client.on("guildCreate", guild => {
     client.channels.get("476536563321274388").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
     });
