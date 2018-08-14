@@ -1,19 +1,11 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-var fs = require("fs");
-const ytdl = require("ytdl-core");
-const { Client, Util } = require('discord.js');
-const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-const queue = new Map();
-
+const yt = require('ytdl-core');
 client.on('ready', () => {
   console.log('---------------');
   console.log(' Quran Bot Is Online')
   console.log('---------------')
-  client.user.setStatus("idle")
+  client.user.setStatus("Online")
     client.user.setActivity(" -help | -invite  ",{type: 'WATCHING'})
 });
 
@@ -149,6 +141,39 @@ function hasRole(mem, role) {
 
 
 
+client.on('ready', () => {
+console.log('Logging into discord..');
+console.log(`
+By Yuki
+`);
+
+});
+
+//جميع الحقوق محفوظه ليوكي ا و اليكس يعني لا تسوي مبرمج وتزور يا تافه 
+
+
+
+
+
+function commandIs(str, msg){
+    return msg.content.toLowerCase().startsWith('.' + str);
+}
+
+function pluck(array) {
+    return array.map(function(item) { return item['name']; });
+}
+
+function hasRole(mem, role) {
+    if(pluck(mem.roles).includes(role)){
+        return true;
+    } else {
+        return false;
+    }
+
+  }
+
+
+
 
 
 var servers = {};
@@ -158,13 +183,13 @@ var servers = {};
 
 
 
-var q1 = ".quran 1"
+var q1 = "-quran 1"
 
-var q2 = ".quran 2"
+var q2 = "-quran 2"
 
-var q3 = ".quran 3"
+var q3 = "-quran 3"
 
-var q4 = ".quran 4"
+var q4 = "-quran 4"
 
 
 
@@ -196,7 +221,7 @@ client.on("ready", () => {
 
 client.on("message", message => {
 
-	                    if (message.content === q1 ) {
+	                    if (message.content === -q1 ) {
                   message.react('🔊')
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) {
@@ -209,7 +234,7 @@ client.on("message", message => {
       });
   }
   
-  	                    if (message.content === q2 ) {
+  	                    if (message.content === -q2 ) {
                   message.react('🔊')
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) {
@@ -222,7 +247,7 @@ client.on("message", message => {
       });
   }
   
-    	                    if (message.content === q3 ) {
+    	                    if (message.content === -q3 ) {
                   message.react('🔊')
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) {
@@ -235,7 +260,7 @@ client.on("message", message => {
       });
   }
   
-      	                    if (message.content === q4 ) {
+      	                    if (message.content === -q4 ) {
                   message.react('🔊')
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) {
@@ -253,14 +278,14 @@ client.on("message", message => {
     //outher_cummon  
     
   
-  if(message.content === ".stop" ) {
+  if(message.content === "-stop" ) {
       			var servers = {};
 
 			if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 	
   }
 
-  if(message.content === ".help") {
+  if(message.content === "-help") {
     message.channel.send(` QuranBot
 :mosque: .quran 1  :   القران الكريم كامل بصوت الشيخ عبدالباسط عبدالصمد 
 
@@ -275,7 +300,6 @@ client.on("message", message => {
  
 	    
 });
-
 
 
              client.on('message', message => {
@@ -311,7 +335,6 @@ client.on('message', message => {
         .setThumbnail('https://cdn4.iconfinder.com/data/icons/thin-games-fun/24/thin-1389_bot_robot_toys-512.png')
         .setDescription(`
 **__Bot Info__** :sparkles:
-
 **Servers**🌐 **__${client.guilds.size}__**
 **Users**👥 **__${client.users.size}__**
 **Channels**📚 **__${client.channels.size}__** `)
@@ -321,33 +344,4 @@ client.on('message', message => {
 
 
 
-	client.on('message', msg => {
-  if (msg.content === prefix + 'help') {
-    msg.reply('**شييك عخاصك يا حلو : )**');
-  }
-});
-
-client.on("message", message => {
-    if (message.content === prefix + "help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#ffff00")
-              .setFooter('Quran-Bot')
-         .setDescription(`
-  
-     **✨QuranBot Commands |اوامر  بوت القران✨
-     
- ❖  ${prefix}quran➾ لتشغيل القران
-
- ❖  ${prefix}info➾ لمعلومات البوت
-
-  ❖  ${prefix}support➾ لسيرفر سبورت البوت
-
- ❖  ${prefix}invite➾لدعوه البوت للسيرفر
-   `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
-   
-   
    client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
